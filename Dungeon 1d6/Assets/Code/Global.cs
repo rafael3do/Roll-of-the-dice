@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Global 
+public class Global : MonoBehaviour
 {
-    public static bool isload = false;
+    public static bool isload;
 }
