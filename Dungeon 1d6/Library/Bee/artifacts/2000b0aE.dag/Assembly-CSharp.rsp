@@ -354,6 +354,7 @@
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/Code/Char.cs"
 "Assets/Code/Game.cs"
 "Assets/Code/Global.cs"
 "Assets/Code/Intro.cs"

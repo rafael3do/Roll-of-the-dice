@@ -61,6 +61,7 @@
     <Compile Include="Assets\Code\Game.cs" />
     <Compile Include="Assets\Code\Intro.cs" />
     <Compile Include="Assets\Code\Global.cs" />
+    <Compile Include="Assets\Code\Char.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
