@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
     public GameObject panelGame;
     public GameObject panelChar;
     public GameObject panelProfiles;
+    public GameObject ObjChar;
     void Start()
     {
         if (Global.isload)
@@ -16,12 +17,14 @@ public class Game : MonoBehaviour
             panelChar.SetActive(false);
             panelGame.SetActive(true);
             panelProfiles.SetActive(false);
+            ObjChar.SetActive(false);
         }
         else
         {
             panelChar.SetActive(true);
             panelGame.SetActive(false);
             panelProfiles.SetActive(true);
+            ObjChar.SetActive(true);
         }
     }
 
