@@ -7,18 +7,21 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     public GameObject panelGame;
     public GameObject panelChar;
+    public GameObject panelProfiles;
     void Start()
     {
         if (Global.isload)
         {
             Debug.Log("Loading");
-            panelChar.SetActive(true);
-            panelGame.SetActive(false);
+            panelChar.SetActive(false);
+            panelGame.SetActive(true);
+            panelProfiles.SetActive(false);
         }
         else
         {
-            panelChar.SetActive(false);
-            panelGame.SetActive(true);
+            panelChar.SetActive(true);
+            panelGame.SetActive(false);
+            panelProfiles.SetActive(true);
         }
     }
 
