@@ -33,4 +33,11 @@ public class Game : MonoBehaviour
     {
         
     }
+    public void DisableCreateChar()
+    {
+        panelChar.SetActive(false);
+        panelGame.SetActive(true);
+        panelProfiles.SetActive(false);
+        ObjChar.SetActive(false);
+    }
 }

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CreateChar : MonoBehaviour
 {
+    public InputField Charname;
     public GameObject SelectChar;
     public GameObject SelectGender;
     public GameObject SelectProfile;
@@ -24,16 +26,45 @@ public class CreateChar : MonoBehaviour
     public GameObject Prof8;
     public Text Txpoints;
     int points = 0;
+    int atack;
+    int def;
+    int life;
+    public Text Txtattack;
+    public Text Txtdefense;
+    public Text Txtlife;
+    public Text TxtBonus;
+    public Button BtBonus;
+    public Button AddAtack;
+    public Button RemoveAtack;
+    public Button AddDefense;
+    public Button RemoveDefense;
+    public Button AddLife;
+    public Button RemoveLife;
+    GameObject SelectionClasse;
+    GameObject SelectionGender;
+    GameObject SelectionProfile;
     // Start is called before the first frame update
     void Start()
     {
         points = 5;
+        Txpoints.text = points.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Txpoints.text = points.ToString();
+        if (points > 0)
+        {
+            AddLife.enabled =  true;
+            AddAtack.enabled = true;
+            AddDefense.enabled=true;
+        }
+        else
+        {
+            AddLife.enabled = false;
+            AddAtack.enabled = false;
+            AddDefense.enabled=false;
+        }
     }
     public void ClickWarrior()
     {
@@ -42,6 +73,7 @@ public class CreateChar : MonoBehaviour
         Archer.GetComponent<Image>().color = Color.gray;
         Mage.GetComponent<Image>().color = Color.gray;
         Ladino.GetComponent<Image>().color = Color.gray;
+        SelectionClasse = Warrior;
 
     }
     public void ClickMage()
@@ -51,6 +83,7 @@ public class CreateChar : MonoBehaviour
         Archer.GetComponent<Image>().color = Color.gray;
         Mage.GetComponent<Image>().color = Color.white;
         Ladino.GetComponent<Image>().color = Color.gray;
+        SelectionClasse = Mage;
     }
     public void ClickArcher()
     {
@@ -59,6 +92,7 @@ public class CreateChar : MonoBehaviour
         Archer.GetComponent<Image>().color = Color.white;
         Mage.GetComponent<Image>().color = Color.gray;
         Ladino.GetComponent<Image>().color = Color.gray;
+        SelectionClasse = Archer;
     }
 
     public void ClickLadino()
@@ -68,12 +102,14 @@ public class CreateChar : MonoBehaviour
         Archer.GetComponent<Image>().color = Color.gray;
         Mage.GetComponent<Image>().color = Color.gray;
         Ladino.GetComponent<Image>().color = Color.white;
+        SelectionClasse= Ladino;
     }
     public void ClickMale()
     {
         SelectGender.transform.localPosition = Male.transform.localPosition;
         Male.GetComponent<Image>().color = Color.white;
         Female.GetComponent<Image>().color = Color.gray;
+        SelectionGender = Male;
     }
 
     public void ClickFemale()
@@ -81,6 +117,7 @@ public class CreateChar : MonoBehaviour
         SelectGender.transform.localPosition = Female.transform.localPosition;
         Male.GetComponent<Image>().color = Color.gray;
         Female.GetComponent<Image>().color = Color.white;
+        SelectionGender = Female;
     }
     public void ClickProf1()
     {
@@ -93,6 +130,7 @@ public class CreateChar : MonoBehaviour
         Prof6.GetComponent<Image>().color = Color.gray;
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
+        SelectionProfile = Prof1;
     }
     public void ClickProf2()
     {
@@ -105,6 +143,7 @@ public class CreateChar : MonoBehaviour
         Prof6.GetComponent<Image>().color = Color.gray;
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
+        SelectionProfile = Prof2;
     }
     public void ClickProf3()
     {
@@ -117,6 +156,7 @@ public class CreateChar : MonoBehaviour
         Prof6.GetComponent<Image>().color = Color.gray;
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
+        SelectionProfile = Prof3;
     }
     public void ClickProf4()
     {
@@ -129,6 +169,7 @@ public class CreateChar : MonoBehaviour
         Prof6.GetComponent<Image>().color = Color.gray;
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
+        SelectionProfile = Prof4;
     }
     public void ClickProf5()
     {
@@ -141,6 +182,7 @@ public class CreateChar : MonoBehaviour
         Prof6.GetComponent<Image>().color = Color.gray;
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
+        SelectionProfile = Prof5;
     }
     public void ClickProf6()
     {
@@ -153,6 +195,7 @@ public class CreateChar : MonoBehaviour
         Prof6.GetComponent<Image>().color = Color.white;
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
+        SelectionProfile = Prof6;
     }
     public void ClickProf7()
     {
@@ -165,6 +208,7 @@ public class CreateChar : MonoBehaviour
         Prof6.GetComponent<Image>().color = Color.gray;
         Prof7.GetComponent<Image>().color = Color.white;
         Prof8.GetComponent<Image>().color = Color.gray;
+        SelectionProfile = Prof7;
     }
     public void ClickProf8()
     {
@@ -177,5 +221,95 @@ public class CreateChar : MonoBehaviour
         Prof6.GetComponent<Image>().color = Color.gray;
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.white;
+        SelectionProfile=Prof8;
+    }
+    public void RollDiceBonus()
+    {
+        int dice = Random.Range(1, 7);
+        TxtBonus.text = dice.ToString();
+        Txpoints.text =(dice+int.Parse(Txpoints.text)).ToString();
+        points += dice;
+        BtBonus.enabled=false;
+    }
+    public void AddMoreAtack()
+    {
+        if (points > 0)
+        {
+            atack += 1;
+            Txtattack.text = atack.ToString();
+            points--;
+            Txpoints.text = points.ToString();
+        }
+       
+    }
+    public void RemoveMoreAtack()
+    {
+        if (atack> 0)
+        {
+            atack -= 1;
+            Txtattack.text = atack.ToString();
+            points++;
+            Txpoints.text = points.ToString();
+            
+        }
+    }
+
+    public void AddMoreDefense()
+    {
+        if (points > 0)
+        {
+            def += 1;
+            Txtdefense.text = def.ToString();
+            points--;
+            Txpoints.text = points.ToString();
+        }
+    }
+    public void RemoveMoreDefense()
+    {
+        if (def > 0)
+        {
+            def -= 1;
+            Txtdefense.text = def.ToString();
+            points++;
+            Txpoints.text = points.ToString();
+
+        }
+    }
+    public void AddMoreLife()
+    {
+        if (points > 0)
+        {
+            life += 1;
+            Txtlife.text = life.ToString();
+            points--;
+            Txpoints.text = (int.Parse(Txpoints.text) - 1).ToString();
+        }
+    }
+    public void RemoveMoreLife()
+    {
+        if (life > 0)
+        {
+            life -= 1;
+            Txtlife.text = life.ToString();
+            points++;
+            Txpoints.text = points.ToString();
+
+        }
+    }
+
+    public void Return()
+    {
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
+    public void MakeChar()
+    {
+        Char.attack = atack;
+        Char.defense = def;
+        Char.maxpointlifes = life;
+        Char.name = name;
+        Char.ImageChar = SelectionProfile;
+        Char.ImgClass = SelectionClasse;
+        Char.ImgGender = SelectionGender;
+        
     }
 }
