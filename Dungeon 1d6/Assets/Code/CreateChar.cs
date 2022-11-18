@@ -296,20 +296,26 @@ public class CreateChar : MonoBehaviour
 
         }
     }
-
+    public void SetName()
+    {
+        name = Charname.text;
+    }
     public void Return()
     {
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
     public void MakeChar()
     {
+        
         Char.attack = atack;
         Char.defense = def;
         Char.maxpointlifes = life;
-        Char.name = name;
+        Char.namechar = name;
         Char.ImageChar = SelectionProfile;
         Char.ImgClass = SelectionClasse;
         Char.ImgGender = SelectionGender;
-        
+        Char.start = true;
+       
+
     }
 }
