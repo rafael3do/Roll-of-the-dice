@@ -58,12 +58,12 @@
   <ItemGroup>
     <Compile Include="Assets\Code\Menu\Save.cs" />
     <Compile Include="Assets\Code\Game\Char.cs" />
+    <Compile Include="Assets\Code\Game\Enemy.cs" />
     <Compile Include="Assets\Code\Menu\Menu.cs" />
     <Compile Include="Assets\Code\Game\CreateChar.cs" />
     <Compile Include="Assets\Code\Game\Game.cs" />
     <Compile Include="Assets\Code\Menu\Intro.cs" />
     <Compile Include="Assets\Code\Global.cs" />
-    <Compile Include="Assets\Code\Game\Enemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
