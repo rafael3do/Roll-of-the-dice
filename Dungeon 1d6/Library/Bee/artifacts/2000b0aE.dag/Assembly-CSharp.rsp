@@ -354,13 +354,14 @@
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/Code/Char.cs"
-"Assets/Code/CreateChar.cs"
-"Assets/Code/Game.cs"
+"Assets/Code/Game/Char.cs"
+"Assets/Code/Game/CreateChar.cs"
+"Assets/Code/Game/Enemy.cs"
+"Assets/Code/Game/Game.cs"
 "Assets/Code/Global.cs"
-"Assets/Code/Intro.cs"
-"Assets/Code/Menu.cs"
-"Assets/Code/Save.cs"
+"Assets/Code/Menu/Intro.cs"
+"Assets/Code/Menu/Menu.cs"
+"Assets/Code/Menu/Save.cs"
 -langversion:9.0
 
 /deterministic
