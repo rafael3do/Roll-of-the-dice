@@ -41,6 +41,6 @@ public class Game : MonoBehaviour
         panelChar.SetActive(false);
         panelGame.SetActive(true);
         panelProfiles.SetActive(false);
-        ObjChar.SetActive(false);
+        //ObjChar.SetActive(false);
     }
 }

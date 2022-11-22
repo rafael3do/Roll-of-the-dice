@@ -33,6 +33,8 @@ public class Char : MonoBehaviour
     public Text valuedice;
     public Button BtDice;
     public Text TxtMsg;
+    public Text TxtPotion;
+    public int potions=3;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,8 +43,9 @@ public class Char : MonoBehaviour
     void StartChar()
     {
         nameux.text = namechar;
-        maxpointlifesux.text = maxpointlifes.ToString();
+        TxtPotion.text = potions.ToString();
         pointlifes = maxpointlifes;
+        maxpointlifesux.text = pointlifes.ToString();
         defenseux.text = defense.ToString();
         attackux.text = attack.ToString();
         ImageCharux = ImageChar;
@@ -100,6 +103,9 @@ public class Char : MonoBehaviour
             case 3:
                 RollDamage();
                 break;
+            case 4:
+                RollYourBonus();
+                break;
                 
 
         }
@@ -114,6 +120,7 @@ public class Char : MonoBehaviour
         {
             StatusTurn.text = "Your turn";
             step = 1;
+            TxtMsg.text += "\n" + System.DateTime.Now.ToString("[hh:mm:ss]:") + " You has initiative " + dice;
         }
         else
         {
@@ -144,7 +151,7 @@ public class Char : MonoBehaviour
             {
                 TxtMsg.text += "\n" + System.DateTime.Now.ToString("[hh:mm:ss]:") + " You failed the attack ";
                 StatusTurn.text = "Enemy turn";
-                step =4;
+                step = 2;
                 BtDice.enabled = false;
                 BtDice.GetComponent<Image>().color = Color.gray;
                 StartCoroutine(IARollAttack());
@@ -220,13 +227,18 @@ public class Char : MonoBehaviour
     {
         if (Enemy.life<=0)
         {
+            TxtMsg.text = "";
             TxtMsg.text += "\n" + System.DateTime.Now.ToString("[hh:mm:ss]:") + " You Killed enemy, go next room";
             Enemy.level++;
             Enemy.CheckEnemy();
             step = 0;
             BtDice.enabled = true;
             BtDice.GetComponent<Image>().color = Color.white;
-            TxtMsg.text = "";
+            if (Enemy.level==5 || Enemy.level == 10 || Enemy.level == 14)
+            {
+                step = 4;
+            }
+           
         }
         else if (pointlifes<=0)
         {
@@ -234,6 +246,19 @@ public class Char : MonoBehaviour
             BtDice.enabled = true;
             BtDice.GetComponent<Image>().color = Color.white;
             StatusTurn.text = "Your Turn";
+            hearts-=1;
+            TxtHearts.text = hearts.ToString();
+            if (hearts<=0)
+            {
+                //you dead
+            }
+            attack += 1;
+            defense += 1;
+            maxpointlifes += 1;
+            pointlifes = maxpointlifes;
+            defenseux.text = defense.ToString();
+            attackux.text = attack.ToString();
+            maxpointlifesux.text = pointlifes.ToString();
         }
         else
         {
@@ -241,11 +266,69 @@ public class Char : MonoBehaviour
             BtDice.enabled = true;
             BtDice.GetComponent<Image>().color = Color.white;
             StatusTurn.text = "Your Turn";
-        }
-        
-
+            TxtMsg.text = "";
+        }     
 
     }
+    void RollYourBonus()
+    {
+        TxtMsg.text = "\n" + System.DateTime.Now.ToString("[hh:mm:ss]:") + " You found a chest ";
+        StatusTurn.text = "Roll Your Bonus";
+        dice = Random.Range(1, 7);
+        valuedice.text = dice.ToString();
+        switch (dice)
+        {
+            case 1:
+                TxtMsg.text = "\n" + System.DateTime.Now.ToString("[hh:mm:ss]:") + " you gain +1 def ";
+                defense += 1;
+                break;
+            case 2:
+                TxtMsg.text = "\n" + System.DateTime.Now.ToString("[hh:mm:ss]:") + " you gain +1 point life ";
+                maxpointlifes += 1;
+                break;
+            case 3:
+                TxtMsg.text = "\n" + System.DateTime.Now.ToString("[hh:mm:ss]:") + " you gain +1 attack ";
+                attack += 1;
+                break;
+            case 4:
+                TxtMsg.text = "\n" + System.DateTime.Now.ToString("[hh:mm:ss]:") + " you gain +1 ressuretion ";
+                lifes += 1;
+                break;
+            case 5:
+                TxtMsg.text = "\n" + System.DateTime.Now.ToString("[hh:mm:ss]:") + " you gain +2 attack ";
+                attack += 2;
+                break;
+            case 6:
+                TxtMsg.text = "\n" + System.DateTime.Now.ToString("[hh:mm:ss]:") + " you gain +1 all stats ";
+                attack += 1;
+                defense += 1;
+                maxpointlifes += 1;
+                defenseux.text = defense.ToString();
+                attackux.text = attack.ToString();
+                pointlifes = maxpointlifes;
+                maxpointlifesux.text = pointlifes.ToString();
+                break;
+        }
+        
+        Enemy.level++;
+        Enemy.CheckEnemy();
+        step = 0;
+
+    }
+
+    public void RollPotion()
+    {
+        if (potions>0)
+        {
+            dice = Random.Range(1, 7);
+            maxpointlifesux.text = (pointlifes + dice).ToString();
+            potions -= 1;
+            TxtPotion.text = potions.ToString();
+        }
+    }
+
+    
+
     IEnumerator IARollAttack()
     {
         StatusTurn.text = "Enemy Roll Attack";

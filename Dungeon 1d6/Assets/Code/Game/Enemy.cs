@@ -56,6 +56,9 @@ public class Enemy : MonoBehaviour
                 break;
             case 5:
                 uxTxtNameEnemy = "Bonus 1";
+                atack = 0;
+                def = 0;
+                life = 0;
                 break;
             case 6:
                 uxTxtNameEnemy = "Kobold";
@@ -83,6 +86,9 @@ public class Enemy : MonoBehaviour
                 break;
             case 10:
                 uxTxtNameEnemy = "Bonus 2";
+                atack = 0;
+                def = 0;
+                life = 0;
                 break;
             case 11:
                 uxTxtNameEnemy = "Spider";
@@ -104,12 +110,15 @@ public class Enemy : MonoBehaviour
                 break;
             case 14:
                 uxTxtNameEnemy = "Bonus 3";
+                atack = 0;
+                def = 0;
+                life =0;
                 break;
             case 15:
                 uxTxtNameEnemy = "Red Dragon";
-                atack = 20;
-                def = 20;
-                life = 100;
+                atack = 8;
+                def = 10;
+                life = 50;
                 break;
             case 16:
                 uxTxtNameEnemy = "End dungeon";
