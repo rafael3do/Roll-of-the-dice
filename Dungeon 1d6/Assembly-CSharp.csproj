@@ -64,6 +64,7 @@
     <Compile Include="Assets\Code\Game\Game.cs" />
     <Compile Include="Assets\Code\Menu\Intro.cs" />
     <Compile Include="Assets\Code\Global.cs" />
+    <Compile Include="Assets\Code\Menu\Return.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

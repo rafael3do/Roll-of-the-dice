@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Char : MonoBehaviour
@@ -55,19 +56,19 @@ public class Char : MonoBehaviour
         ImageCharux = Instantiate(ImageChar, ImageCharux.GetComponent<Transform>().localScale, Quaternion.identity);
         ImageCharux.transform.parent = PanelPlay.gameObject.transform;
         ImageCharux.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        ImageCharux.transform.localPosition = new Vector2(-143.0f, -160.0f);
+        ImageCharux.transform.localPosition = new Vector2(-86.0f, -160.0f);
         ImageCharux.GetComponent<Button>().enabled = false;
 
         ImgClassux = Instantiate(ImgClass, ImgClassux.GetComponent<Transform>().localScale, Quaternion.identity);
         ImgClassux.transform.parent = PanelPlay.gameObject.transform;
         ImgClassux.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        ImgClassux.transform.localPosition = new Vector2(-142.0f, -204.0f);
+        ImgClassux.transform.localPosition = new Vector2(-86.0f, -204.0f);
         ImgClassux.GetComponent<Button>().enabled = false;
 
         ImgGenderux = Instantiate(ImgGenderux, ImgGenderux.GetComponent<Transform>().localScale, Quaternion.identity);
         ImgGenderux.transform.parent = PanelPlay.gameObject.transform;
         ImgGenderux.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        ImgGenderux.transform.localPosition = new Vector2(-142.0f, -252.0f);
+        ImgGenderux.transform.localPosition = new Vector2(-86.0f, -252.0f);
         ImgGenderux.GetComponent<Button>().enabled = false;
 
         hearts = 3;
@@ -250,7 +251,7 @@ public class Char : MonoBehaviour
             TxtHearts.text = hearts.ToString();
             if (hearts<=0)
             {
-                //you dead
+                SceneManager.LoadScene("Death", LoadSceneMode.Single);
             }
             attack += 1;
             defense += 1;
@@ -321,7 +322,8 @@ public class Char : MonoBehaviour
         if (potions>0)
         {
             dice = Random.Range(1, 7);
-            maxpointlifesux.text = (pointlifes + dice).ToString();
+            pointlifes += dice;
+            maxpointlifesux.text = pointlifes.ToString();
             potions -= 1;
             TxtPotion.text = potions.ToString();
         }

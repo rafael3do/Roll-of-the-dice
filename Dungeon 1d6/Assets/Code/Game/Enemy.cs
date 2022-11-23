@@ -116,7 +116,7 @@ public class Enemy : MonoBehaviour
                 break;
             case 15:
                 uxTxtNameEnemy = "Red Dragon";
-                atack = 8;
+                atack = 7;
                 def = 10;
                 life = 50;
                 break;
