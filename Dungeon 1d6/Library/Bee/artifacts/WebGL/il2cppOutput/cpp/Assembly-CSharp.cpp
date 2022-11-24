@@ -181,6 +181,7 @@ IL2CPP_EXTERN_C RuntimeClass* WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B35
 IL2CPP_EXTERN_C String_t* _stringLiteral00B28FF06B788B9B67C6B259800F404F9F3761FD;
 IL2CPP_EXTERN_C String_t* _stringLiteral079998E3393B6BDC1FAFFA63A54F724488AE5306;
 IL2CPP_EXTERN_C String_t* _stringLiteral0C10E47675493434D04CD8025C8303AF94F7BA5A;
+IL2CPP_EXTERN_C String_t* _stringLiteral0E9E34245923A0BB21FDAA5FE52670E5EAD09AF1;
 IL2CPP_EXTERN_C String_t* _stringLiteral13D8CF50A63924CF873A7A80F0DE1655D08247A7;
 IL2CPP_EXTERN_C String_t* _stringLiteral286CCE038B310A832E4EB75FF4FA51D4788CDB37;
 IL2CPP_EXTERN_C String_t* _stringLiteral2BBA453816D50234AC7D486640245E669B9079D7;
@@ -4622,6 +4623,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Enemy_CheckEnemy_mB336BB6F0E6157ECE8F3B8
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral0E9E34245923A0BB21FDAA5FE52670E5EAD09AF1);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral13D8CF50A63924CF873A7A80F0DE1655D08247A7);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral286CCE038B310A832E4EB75FF4FA51D4788CDB37);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36BD09BAB4070EB37219BF4AA5D099E8A3538ABC);
@@ -4948,6 +4951,9 @@ IL_0206:
 		// uxTxtNameEnemy = "End dungeon";
 		((Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB_StaticFields*)il2cpp_codegen_static_fields_for(Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB_il2cpp_TypeInfo_var))->___uxTxtNameEnemy_5 = _stringLiteralF52B1E3C09DA700BB34C3CCB7D543736610D88A2;
 		Il2CppCodeGenWriteBarrier((void**)(&((Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB_StaticFields*)il2cpp_codegen_static_fields_for(Enemy_t10DB314C96B1CE78B8D967CD3B39F05126409BBB_il2cpp_TypeInfo_var))->___uxTxtNameEnemy_5), (void*)_stringLiteralF52B1E3C09DA700BB34C3CCB7D543736610D88A2);
+		// SceneManager.LoadScene("Win", LoadSceneMode.Single);
+		il2cpp_codegen_runtime_class_init_inline(SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		SceneManager_LoadScene_m2841705C02C450E42A44B5EEE2A6A2C4261FA3AF(_stringLiteral0E9E34245923A0BB21FDAA5FE52670E5EAD09AF1, 0, NULL);
 		// }
 		return;
 	}

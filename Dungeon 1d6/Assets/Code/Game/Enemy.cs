@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
@@ -122,6 +123,7 @@ public class Enemy : MonoBehaviour
                 break;
             case 16:
                 uxTxtNameEnemy = "End dungeon";
+                SceneManager.LoadScene("Win", LoadSceneMode.Single);
                 break;
         }
         
