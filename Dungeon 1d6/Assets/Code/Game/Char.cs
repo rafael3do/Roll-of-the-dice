@@ -249,7 +249,7 @@ public class Char : MonoBehaviour
             StatusTurn.text = "Your Turn";
             hearts-=1;
             TxtHearts.text = hearts.ToString();
-            if (hearts<=0)
+            if (hearts<0)
             {
                 SceneManager.LoadScene("Death", LoadSceneMode.Single);
             }
