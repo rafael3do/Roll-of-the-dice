@@ -40,9 +40,15 @@ public class CreateChar : MonoBehaviour
     public Button RemoveDefense;
     public Button AddLife;
     public Button RemoveLife;
+    public Button BtCreateChar;
     GameObject SelectionClasse;
     GameObject SelectionGender;
     GameObject SelectionProfile;
+    bool isSelectProfile = false;
+    bool isSelectGender = false;
+    bool isSelectClass = false;
+    bool isUsedPoints = false;
+    bool isNameChar=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,10 +67,22 @@ public class CreateChar : MonoBehaviour
         }
         else
         {
+            isUsedPoints = true;
             AddLife.enabled = false;
             AddAtack.enabled = false;
             AddDefense.enabled=false;
         }
+        if (isSelectProfile && isSelectGender && isSelectClass && isUsedPoints && isNameChar)
+        {
+            BtCreateChar.enabled = true;
+            BtCreateChar.GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            BtCreateChar.enabled = false;
+            BtCreateChar.GetComponent<Image>().color = Color.gray;
+        }
+
     }
     public void ClickWarrior()
     {
@@ -74,7 +92,7 @@ public class CreateChar : MonoBehaviour
         Mage.GetComponent<Image>().color = Color.gray;
         Ladino.GetComponent<Image>().color = Color.gray;
         SelectionClasse = Warrior;
-
+        isSelectClass=true;
     }
     public void ClickMage()
     {
@@ -84,6 +102,7 @@ public class CreateChar : MonoBehaviour
         Mage.GetComponent<Image>().color = Color.white;
         Ladino.GetComponent<Image>().color = Color.gray;
         SelectionClasse = Mage;
+        isSelectClass = true;
     }
     public void ClickArcher()
     {
@@ -93,6 +112,7 @@ public class CreateChar : MonoBehaviour
         Mage.GetComponent<Image>().color = Color.gray;
         Ladino.GetComponent<Image>().color = Color.gray;
         SelectionClasse = Archer;
+        isSelectClass = true;
     }
 
     public void ClickLadino()
@@ -103,6 +123,7 @@ public class CreateChar : MonoBehaviour
         Mage.GetComponent<Image>().color = Color.gray;
         Ladino.GetComponent<Image>().color = Color.white;
         SelectionClasse= Ladino;
+        isSelectClass = true;
     }
     public void ClickMale()
     {
@@ -110,6 +131,7 @@ public class CreateChar : MonoBehaviour
         Male.GetComponent<Image>().color = Color.white;
         Female.GetComponent<Image>().color = Color.gray;
         SelectionGender = Male;
+        isSelectGender = true;
     }
 
     public void ClickFemale()
@@ -118,6 +140,7 @@ public class CreateChar : MonoBehaviour
         Male.GetComponent<Image>().color = Color.gray;
         Female.GetComponent<Image>().color = Color.white;
         SelectionGender = Female;
+        isSelectGender = true;
     }
     public void ClickProf1()
     {
@@ -131,6 +154,7 @@ public class CreateChar : MonoBehaviour
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
         SelectionProfile = Prof1;
+        isSelectProfile = true;
     }
     public void ClickProf2()
     {
@@ -144,6 +168,7 @@ public class CreateChar : MonoBehaviour
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
         SelectionProfile = Prof2;
+        isSelectProfile = true;
     }
     public void ClickProf3()
     {
@@ -157,6 +182,7 @@ public class CreateChar : MonoBehaviour
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
         SelectionProfile = Prof3;
+        isSelectProfile = true;
     }
     public void ClickProf4()
     {
@@ -170,6 +196,7 @@ public class CreateChar : MonoBehaviour
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
         SelectionProfile = Prof4;
+        isSelectProfile = true;
     }
     public void ClickProf5()
     {
@@ -183,6 +210,7 @@ public class CreateChar : MonoBehaviour
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
         SelectionProfile = Prof5;
+        isSelectProfile = true;
     }
     public void ClickProf6()
     {
@@ -196,6 +224,7 @@ public class CreateChar : MonoBehaviour
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.gray;
         SelectionProfile = Prof6;
+        isSelectProfile = true;
     }
     public void ClickProf7()
     {
@@ -209,6 +238,7 @@ public class CreateChar : MonoBehaviour
         Prof7.GetComponent<Image>().color = Color.white;
         Prof8.GetComponent<Image>().color = Color.gray;
         SelectionProfile = Prof7;
+        isSelectProfile = true;
     }
     public void ClickProf8()
     {
@@ -222,6 +252,7 @@ public class CreateChar : MonoBehaviour
         Prof7.GetComponent<Image>().color = Color.gray;
         Prof8.GetComponent<Image>().color = Color.white;
         SelectionProfile=Prof8;
+        isSelectProfile = true;
     }
     public void RollDiceBonus()
     {
@@ -299,6 +330,7 @@ public class CreateChar : MonoBehaviour
     public void SetName()
     {
         name = Charname.text;
+        isNameChar = true;
     }
     public void Return()
     {
