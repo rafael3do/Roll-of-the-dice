@@ -6459,6 +6459,7 @@ MonoBehaviour:
   RemoveDefense: {fileID: 1750033318}
   AddLife: {fileID: 1683450919}
   RemoveLife: {fileID: 1046912450}
+  BtCreateChar: {fileID: 871396221}
 --- !u!4 &1324637847
 Transform:
   m_ObjectHideFlags: 0
