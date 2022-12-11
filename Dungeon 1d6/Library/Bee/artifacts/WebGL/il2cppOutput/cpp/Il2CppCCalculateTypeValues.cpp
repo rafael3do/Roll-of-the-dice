@@ -42153,12 +42153,24 @@ struct CreateChar_t0684CE9247E34030D7D0AF0407564D3767C8CACA  : public MonoBehavi
 	Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___AddLife_36;
 	// UnityEngine.UI.Button CreateChar::RemoveLife
 	Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___RemoveLife_37;
+	// UnityEngine.UI.Button CreateChar::BtCreateChar
+	Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___BtCreateChar_38;
 	// UnityEngine.GameObject CreateChar::SelectionClasse
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionClasse_38;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionClasse_39;
 	// UnityEngine.GameObject CreateChar::SelectionGender
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionGender_39;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionGender_40;
 	// UnityEngine.GameObject CreateChar::SelectionProfile
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionProfile_40;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionProfile_41;
+	// System.Boolean CreateChar::isSelectProfile
+	bool ___isSelectProfile_42;
+	// System.Boolean CreateChar::isSelectGender
+	bool ___isSelectGender_43;
+	// System.Boolean CreateChar::isSelectClass
+	bool ___isSelectClass_44;
+	// System.Boolean CreateChar::isUsedPoints
+	bool ___isUsedPoints_45;
+	// System.Boolean CreateChar::isNameChar
+	bool ___isNameChar_46;
 };
 
 // UnityEngine.UIElements.DropdownField
