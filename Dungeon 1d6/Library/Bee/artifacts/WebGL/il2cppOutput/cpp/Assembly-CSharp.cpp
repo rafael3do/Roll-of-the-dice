@@ -918,12 +918,24 @@ struct CreateChar_t0684CE9247E34030D7D0AF0407564D3767C8CACA  : public MonoBehavi
 	Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___AddLife_36;
 	// UnityEngine.UI.Button CreateChar::RemoveLife
 	Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___RemoveLife_37;
+	// UnityEngine.UI.Button CreateChar::BtCreateChar
+	Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* ___BtCreateChar_38;
 	// UnityEngine.GameObject CreateChar::SelectionClasse
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionClasse_38;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionClasse_39;
 	// UnityEngine.GameObject CreateChar::SelectionGender
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionGender_39;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionGender_40;
 	// UnityEngine.GameObject CreateChar::SelectionProfile
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionProfile_40;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___SelectionProfile_41;
+	// System.Boolean CreateChar::isSelectProfile
+	bool ___isSelectProfile_42;
+	// System.Boolean CreateChar::isSelectGender
+	bool ___isSelectGender_43;
+	// System.Boolean CreateChar::isSelectClass
+	bool ___isSelectClass_44;
+	// System.Boolean CreateChar::isUsedPoints
+	bool ___isUsedPoints_45;
+	// System.Boolean CreateChar::isNameChar
+	bool ___isNameChar_46;
 };
 
 // Enemy
@@ -2570,9 +2582,9 @@ IL_00ab:
 		String_t* L_25;
 		L_25 = Int32_ToString_m030E01C24E294D6762FB0B6F37CB541581F55CA5(L_24, NULL);
 		VirtualActionInvoker1< String_t* >::Invoke(75 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_23, L_25);
-		// if (hearts<=0)
+		// if (hearts<0)
 		int32_t L_26 = __this->___hearts_24;
-		if ((((int32_t)L_26) > ((int32_t)0)))
+		if ((((int32_t)L_26) >= ((int32_t)0)))
 		{
 			goto IL_0126;
 		}
@@ -3221,12 +3233,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_Start_mCDA188D718BD3E10B26669
 // System.Void CreateChar::Update()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_Update_m122A164F808B40DFD2E33B30E7011DFF4FD3A319 (CreateChar_t0684CE9247E34030D7D0AF0407564D3767C8CACA* __this, const RuntimeMethod* method) 
 {
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponent_TisImage_tBC1D03F63BF71132E9A5E472B8742F172A011E7E_mE74EE63C85A63FC34DCFC631BC229207B420BC79_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
 	{
 		// if (points > 0)
 		int32_t L_0 = __this->___points_23;
 		if ((((int32_t)L_0) <= ((int32_t)0)))
 		{
-			goto IL_002e;
+			goto IL_002f;
 		}
 	}
 	{
@@ -3239,11 +3257,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_Update_m122A164F808B40DFD2E33
 		// AddDefense.enabled=true;
 		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_3 = __this->___AddDefense_34;
 		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_3, (bool)1, NULL);
-		return;
+		goto IL_005a;
 	}
 
-IL_002e:
+IL_002f:
 	{
+		// isUsedPoints = true;
+		__this->___isUsedPoints_45 = (bool)1;
 		// AddLife.enabled = false;
 		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_4 = __this->___AddLife_36;
 		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_4, (bool)0, NULL);
@@ -3253,6 +3273,71 @@ IL_002e:
 		// AddDefense.enabled=false;
 		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_6 = __this->___AddDefense_34;
 		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_6, (bool)0, NULL);
+	}
+
+IL_005a:
+	{
+		// if (isSelectProfile && isSelectGender && isSelectClass && isUsedPoints && isNameChar)
+		bool L_7 = __this->___isSelectProfile_42;
+		if (!L_7)
+		{
+			goto IL_00a4;
+		}
+	}
+	{
+		bool L_8 = __this->___isSelectGender_43;
+		if (!L_8)
+		{
+			goto IL_00a4;
+		}
+	}
+	{
+		bool L_9 = __this->___isSelectClass_44;
+		if (!L_9)
+		{
+			goto IL_00a4;
+		}
+	}
+	{
+		bool L_10 = __this->___isUsedPoints_45;
+		if (!L_10)
+		{
+			goto IL_00a4;
+		}
+	}
+	{
+		bool L_11 = __this->___isNameChar_46;
+		if (!L_11)
+		{
+			goto IL_00a4;
+		}
+	}
+	{
+		// BtCreateChar.enabled = true;
+		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_12 = __this->___BtCreateChar_38;
+		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_12, (bool)1, NULL);
+		// BtCreateChar.GetComponent<Image>().color = Color.white;
+		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_13 = __this->___BtCreateChar_38;
+		Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* L_14;
+		L_14 = Component_GetComponent_TisImage_tBC1D03F63BF71132E9A5E472B8742F172A011E7E_mE74EE63C85A63FC34DCFC631BC229207B420BC79(L_13, Component_GetComponent_TisImage_tBC1D03F63BF71132E9A5E472B8742F172A011E7E_mE74EE63C85A63FC34DCFC631BC229207B420BC79_RuntimeMethod_var);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_15;
+		L_15 = Color_get_white_m068F5AF879B0FCA584E3693F762EA41BB65532C6_inline(NULL);
+		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_14, L_15);
+		return;
+	}
+
+IL_00a4:
+	{
+		// BtCreateChar.enabled = false;
+		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_16 = __this->___BtCreateChar_38;
+		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_16, (bool)0, NULL);
+		// BtCreateChar.GetComponent<Image>().color = Color.gray;
+		Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098* L_17 = __this->___BtCreateChar_38;
+		Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* L_18;
+		L_18 = Component_GetComponent_TisImage_tBC1D03F63BF71132E9A5E472B8742F172A011E7E_mE74EE63C85A63FC34DCFC631BC229207B420BC79(L_17, Component_GetComponent_TisImage_tBC1D03F63BF71132E9A5E472B8742F172A011E7E_mE74EE63C85A63FC34DCFC631BC229207B420BC79_RuntimeMethod_var);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_19;
+		L_19 = Color_get_gray_m6D01087E0F20F34718EBA5B213853B4BB49F1DEF_inline(NULL);
+		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_18, L_19);
 		// }
 		return;
 	}
@@ -3307,8 +3392,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickWarrior_m5CADB6BBA268A60
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_15, L_16);
 		// SelectionClasse = Warrior;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_17 = __this->___Warrior_10;
-		__this->___SelectionClasse_38 = L_17;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionClasse_38), (void*)L_17);
+		__this->___SelectionClasse_39 = L_17;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionClasse_39), (void*)L_17);
+		// isSelectClass=true;
+		__this->___isSelectClass_44 = (bool)1;
 		// }
 		return;
 	}
@@ -3363,8 +3450,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickMage_m5E582B4FFB698741C5
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_15, L_16);
 		// SelectionClasse = Mage;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_17 = __this->___Mage_12;
-		__this->___SelectionClasse_38 = L_17;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionClasse_38), (void*)L_17);
+		__this->___SelectionClasse_39 = L_17;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionClasse_39), (void*)L_17);
+		// isSelectClass = true;
+		__this->___isSelectClass_44 = (bool)1;
 		// }
 		return;
 	}
@@ -3419,8 +3508,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickArcher_m3817B50D9FDD9000
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_15, L_16);
 		// SelectionClasse = Archer;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_17 = __this->___Archer_11;
-		__this->___SelectionClasse_38 = L_17;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionClasse_38), (void*)L_17);
+		__this->___SelectionClasse_39 = L_17;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionClasse_39), (void*)L_17);
+		// isSelectClass = true;
+		__this->___isSelectClass_44 = (bool)1;
 		// }
 		return;
 	}
@@ -3475,8 +3566,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickLadino_m50840BF2CAAB619D
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_15, L_16);
 		// SelectionClasse= Ladino;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_17 = __this->___Ladino_13;
-		__this->___SelectionClasse_38 = L_17;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionClasse_38), (void*)L_17);
+		__this->___SelectionClasse_39 = L_17;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionClasse_39), (void*)L_17);
+		// isSelectClass = true;
+		__this->___isSelectClass_44 = (bool)1;
 		// }
 		return;
 	}
@@ -3517,8 +3610,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickMale_mF34D5A26D398D29BC7
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_9, L_10);
 		// SelectionGender = Male;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_11 = __this->___Male_8;
-		__this->___SelectionGender_39 = L_11;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionGender_39), (void*)L_11);
+		__this->___SelectionGender_40 = L_11;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionGender_40), (void*)L_11);
+		// isSelectGender = true;
+		__this->___isSelectGender_43 = (bool)1;
 		// }
 		return;
 	}
@@ -3559,8 +3654,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickFemale_mCE695C8E03C7B2B5
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_9, L_10);
 		// SelectionGender = Female;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_11 = __this->___Female_9;
-		__this->___SelectionGender_39 = L_11;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionGender_39), (void*)L_11);
+		__this->___SelectionGender_40 = L_11;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionGender_40), (void*)L_11);
+		// isSelectGender = true;
+		__this->___isSelectGender_43 = (bool)1;
 		// }
 		return;
 	}
@@ -3643,8 +3740,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickProf1_mAEB92419F89168BFC
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_27, L_28);
 		// SelectionProfile = Prof1;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_29 = __this->___Prof1_14;
-		__this->___SelectionProfile_40 = L_29;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_40), (void*)L_29);
+		__this->___SelectionProfile_41 = L_29;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_41), (void*)L_29);
+		// isSelectProfile = true;
+		__this->___isSelectProfile_42 = (bool)1;
 		// }
 		return;
 	}
@@ -3727,8 +3826,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickProf2_m87B9C829879006491
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_27, L_28);
 		// SelectionProfile = Prof2;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_29 = __this->___Prof2_15;
-		__this->___SelectionProfile_40 = L_29;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_40), (void*)L_29);
+		__this->___SelectionProfile_41 = L_29;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_41), (void*)L_29);
+		// isSelectProfile = true;
+		__this->___isSelectProfile_42 = (bool)1;
 		// }
 		return;
 	}
@@ -3811,8 +3912,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickProf3_mC70BA03E7CB720CC3
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_27, L_28);
 		// SelectionProfile = Prof3;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_29 = __this->___Prof3_16;
-		__this->___SelectionProfile_40 = L_29;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_40), (void*)L_29);
+		__this->___SelectionProfile_41 = L_29;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_41), (void*)L_29);
+		// isSelectProfile = true;
+		__this->___isSelectProfile_42 = (bool)1;
 		// }
 		return;
 	}
@@ -3895,8 +3998,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickProf4_mBF3BBF3626717D9F8
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_27, L_28);
 		// SelectionProfile = Prof4;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_29 = __this->___Prof4_17;
-		__this->___SelectionProfile_40 = L_29;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_40), (void*)L_29);
+		__this->___SelectionProfile_41 = L_29;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_41), (void*)L_29);
+		// isSelectProfile = true;
+		__this->___isSelectProfile_42 = (bool)1;
 		// }
 		return;
 	}
@@ -3979,8 +4084,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickProf5_m480870130A2C8B83C
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_27, L_28);
 		// SelectionProfile = Prof5;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_29 = __this->___Prof5_18;
-		__this->___SelectionProfile_40 = L_29;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_40), (void*)L_29);
+		__this->___SelectionProfile_41 = L_29;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_41), (void*)L_29);
+		// isSelectProfile = true;
+		__this->___isSelectProfile_42 = (bool)1;
 		// }
 		return;
 	}
@@ -4063,8 +4170,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickProf6_mDA032DF1B853C5A8D
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_27, L_28);
 		// SelectionProfile = Prof6;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_29 = __this->___Prof6_19;
-		__this->___SelectionProfile_40 = L_29;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_40), (void*)L_29);
+		__this->___SelectionProfile_41 = L_29;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_41), (void*)L_29);
+		// isSelectProfile = true;
+		__this->___isSelectProfile_42 = (bool)1;
 		// }
 		return;
 	}
@@ -4147,8 +4256,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickProf7_m40ADB86BF3F1D6E64
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_27, L_28);
 		// SelectionProfile = Prof7;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_29 = __this->___Prof7_20;
-		__this->___SelectionProfile_40 = L_29;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_40), (void*)L_29);
+		__this->___SelectionProfile_41 = L_29;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_41), (void*)L_29);
+		// isSelectProfile = true;
+		__this->___isSelectProfile_42 = (bool)1;
 		// }
 		return;
 	}
@@ -4231,8 +4342,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_ClickProf8_mF2C9A51899EED3BAC
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_27, L_28);
 		// SelectionProfile=Prof8;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_29 = __this->___Prof8_21;
-		__this->___SelectionProfile_40 = L_29;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_40), (void*)L_29);
+		__this->___SelectionProfile_41 = L_29;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___SelectionProfile_41), (void*)L_29);
+		// isSelectProfile = true;
+		__this->___isSelectProfile_42 = (bool)1;
 		// }
 		return;
 	}
@@ -4518,6 +4631,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_SetName_m0B38B485AF57EA347075
 		String_t* L_1;
 		L_1 = InputField_get_text_m6E0796350FF559505E4DF17311803962699D6704_inline(L_0, NULL);
 		Object_set_name_mC79E6DC8FFD72479C90F0C4CC7F42A0FEAF5AE47(__this, L_1, NULL);
+		// isNameChar = true;
+		__this->___isNameChar_46 = (bool)1;
 		// }
 		return;
 	}
@@ -4565,15 +4680,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CreateChar_MakeChar_mBD962CB8BF921D7A169
 		((Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_StaticFields*)il2cpp_codegen_static_fields_for(Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_il2cpp_TypeInfo_var))->___namechar_4 = L_3;
 		Il2CppCodeGenWriteBarrier((void**)(&((Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_StaticFields*)il2cpp_codegen_static_fields_for(Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_il2cpp_TypeInfo_var))->___namechar_4), (void*)L_3);
 		// Char.ImageChar = SelectionProfile;
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_4 = __this->___SelectionProfile_40;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_4 = __this->___SelectionProfile_41;
 		((Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_StaticFields*)il2cpp_codegen_static_fields_for(Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_il2cpp_TypeInfo_var))->___ImageChar_10 = L_4;
 		Il2CppCodeGenWriteBarrier((void**)(&((Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_StaticFields*)il2cpp_codegen_static_fields_for(Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_il2cpp_TypeInfo_var))->___ImageChar_10), (void*)L_4);
 		// Char.ImgClass = SelectionClasse;
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_5 = __this->___SelectionClasse_38;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_5 = __this->___SelectionClasse_39;
 		((Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_StaticFields*)il2cpp_codegen_static_fields_for(Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_il2cpp_TypeInfo_var))->___ImgClass_11 = L_5;
 		Il2CppCodeGenWriteBarrier((void**)(&((Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_StaticFields*)il2cpp_codegen_static_fields_for(Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_il2cpp_TypeInfo_var))->___ImgClass_11), (void*)L_5);
 		// Char.ImgGender = SelectionGender;
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_6 = __this->___SelectionGender_39;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_6 = __this->___SelectionGender_40;
 		((Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_StaticFields*)il2cpp_codegen_static_fields_for(Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_il2cpp_TypeInfo_var))->___ImgGender_12 = L_6;
 		Il2CppCodeGenWriteBarrier((void**)(&((Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_StaticFields*)il2cpp_codegen_static_fields_for(Char_tAD4A836CEB9BA0C6651AEC6622232BACB068836F_il2cpp_TypeInfo_var))->___ImgGender_12), (void*)L_6);
 		// Char.start = true;
