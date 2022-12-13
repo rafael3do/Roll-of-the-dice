@@ -14000,35 +14000,31 @@
       "DebugActionIndex": 365
     },
     {
-      "Annotation": "Brotli Deploy/Build/Deploy.framework.js.br",
-      "Action": "\"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Brotli/win_x86_64/brotli.exe\" -o \"Deploy/Build/Deploy.framework.js.br\" -i \"Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js\" --comment \"UnityWeb Compressed Content (brotli)\"",
+      "Annotation": "CopyFiles Deploy/Build/Deploy.framework.js",
+      "ActionType": "CopyFiles",
       "Inputs": [
         "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js"
       ],
       "Outputs": [
-        "Deploy/Build/Deploy.framework.js.br"
+        "Deploy/Build/Deploy.framework.js"
       ],
       "ToBuildDependencies": [
         365
       ],
-      "OverwriteOutputs": false,
-      "AllowUnexpectedOutput": true,
       "DebugActionIndex": 366
     },
     {
-      "Annotation": "Brotli Deploy/Build/Deploy.wasm.br",
-      "Action": "\"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Brotli/win_x86_64/brotli.exe\" -o \"Deploy/Build/Deploy.wasm.br\" -i \"Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm\" --comment \"UnityWeb Compressed Content (brotli)\"",
+      "Annotation": "CopyFiles Deploy/Build/Deploy.wasm",
+      "ActionType": "CopyFiles",
       "Inputs": [
         "Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm"
       ],
       "Outputs": [
-        "Deploy/Build/Deploy.wasm.br"
+        "Deploy/Build/Deploy.wasm"
       ],
       "ToBuildDependencies": [
         363
       ],
-      "OverwriteOutputs": false,
-      "AllowUnexpectedOutput": true,
       "DebugActionIndex": 367
     },
     {
@@ -14101,24 +14097,22 @@
       "DebugActionIndex": 371
     },
     {
-      "Annotation": "Brotli Deploy/Build/Deploy.data.br",
-      "Action": "\"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Brotli/win_x86_64/brotli.exe\" -o \"Deploy/Build/Deploy.data.br\" -i \"Library/Bee/artifacts/WebGL/webgl.data\" --comment \"UnityWeb Compressed Content (brotli)\"",
+      "Annotation": "CopyFiles Deploy/Build/Deploy.data",
+      "ActionType": "CopyFiles",
       "Inputs": [
         "Library/Bee/artifacts/WebGL/webgl.data"
       ],
       "Outputs": [
-        "Deploy/Build/Deploy.data.br"
+        "Deploy/Build/Deploy.data"
       ],
       "ToBuildDependencies": [
         371
       ],
-      "OverwriteOutputs": false,
-      "AllowUnexpectedOutput": true,
       "DebugActionIndex": 372
     },
     {
       "Annotation": "PreprocessJS Deploy/Build/Deploy.loader.js",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='UnityLoader/UnityLoader.js'\"  \"locals.outputPath='F\\x3a/Roll of the dice/Dungeon 1d6/Deploy/Build/Deploy.loader.js'\"  \"locals.minifyOutput=true\"  \"COMPANY_NAME='rafael3do'\" \"PRODUCT_NAME='Dungeon 1d6'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='Deploy.data.br'\" \"FRAMEWORK_FILENAME='Deploy.framework.js.br'\" \"CODE_FILENAME='Deploy.wasm.br'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=true\" \"USE_WEBGL_2_0=true\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"TOTAL_MEMORY=33554432\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2021.3.9f1'\" \"LOADER_FILENAME='Deploy.loader.js'\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='UnityLoader/UnityLoader.js'\"  \"locals.outputPath='F\\x3a/Roll of the dice/Dungeon 1d6/Deploy/Build/Deploy.loader.js'\"  \"locals.minifyOutput=true\"  \"COMPANY_NAME='rafael3do'\" \"PRODUCT_NAME='Dungeon 1d6'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='Deploy.data'\" \"FRAMEWORK_FILENAME='Deploy.framework.js'\" \"CODE_FILENAME='Deploy.wasm'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=true\" \"USE_WEBGL_2_0=true\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"TOTAL_MEMORY=33554432\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2021.3.9f1'\" \"LOADER_FILENAME='Deploy.loader.js'\"",
       "Inputs": [
         "UnityLoader/UnityLoader.js"
       ],
@@ -14130,7 +14124,7 @@
     },
     {
       "Annotation": "PreprocessJS Deploy/index.html",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='C\\x3a/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Minimal/index.html'\"  \"locals.outputPath='F\\x3a/Roll of the dice/Dungeon 1d6/Deploy/index.html'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='rafael3do'\" \"PRODUCT_NAME='Dungeon 1d6'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='Deploy.data.br'\" \"FRAMEWORK_FILENAME='Deploy.framework.js.br'\" \"CODE_FILENAME='Deploy.wasm.br'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=true\" \"USE_WEBGL_2_0=true\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"TOTAL_MEMORY=33554432\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2021.3.9f1'\" \"LOADER_FILENAME='Deploy.loader.js'\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='C\\x3a/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Minimal/index.html'\"  \"locals.outputPath='F\\x3a/Roll of the dice/Dungeon 1d6/Deploy/index.html'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='rafael3do'\" \"PRODUCT_NAME='Dungeon 1d6'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=960\" \"HEIGHT=600\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='Deploy.data'\" \"FRAMEWORK_FILENAME='Deploy.framework.js'\" \"CODE_FILENAME='Deploy.wasm'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_THREADS=false\" \"USE_WEBGL_1_0=true\" \"USE_WEBGL_2_0=true\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"TOTAL_MEMORY=33554432\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='2021.3.9f1'\" \"LOADER_FILENAME='Deploy.loader.js'\"",
       "Inputs": [
         "C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Minimal/index.html"
       ],
