@@ -917,7 +917,7 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 86e7ff8e6b032903b7645a4b1d32ad88
+      Hash: 1613d792c497c29ada19b09b33d2ba17
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CreateChar
